@@ -1,8 +1,8 @@
 {
-   "python.linting.pylintEnabled": true,
-   "python.linting.enabled": true,
+   "python.linting.pylintEnabled": false,
+   "python.linting.enabled": false,
    "python.linting.pycodestyleEnabled": false,
-   "python.linting.flake8Enabled": true,
+   "python.linting.flake8Enabled": false,
    "python.terminal.activateEnvironment": false,
    "python.formatting.autopep8Path": "/home/gitpod/.pyenv/shims/autopep8",
    "python.linting.flake8Path": "/home/gitpod/.pyenv/shims/flake8",
@@ -20,7 +20,26 @@
       "**/core.python*": true,
       "**/CVS": true
    },
-   "files.autoSave": "off",
-   "workbench.colorTheme": "Visual Studio Dark",
-   "editor.defaultFormatter": "HookyQR.beautify"
+   "files.autoSave": "afterDelay",
+   "workbench.colorTheme": "Shades of Purple",
+   "editor.defaultFormatter": "TabNine.tabnine-vscode",
+   "jupyter.disableJupyterAutoStart": true,
+   "liveServer.settings.CustomBrowser": "chrome",
+   "liveServer.settings.NoBrowser": true,
+   "liveServer.settings.fullReload": true,
+   "liveServer.settings.useLocalIp": true,
+   "liveServer.settings.useWebExt": true,
+   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+   "python.linting.pylintCategorySeverity.error": "Hint",
+   "python.linting.pylintCategorySeverity.fatal": "Hint",
+   "python.linting.pylintCategorySeverity.warning": "Hint",
+   "python.linting.flake8CategorySeverity.E": "Hint",
+   "python.linting.flake8CategorySeverity.F": "Hint",
+   "python.linting.flake8CategorySeverity.W": "Hint",
+   "python.linting.mypyCategorySeverity.error": "Hint",
+   "python.linting.pycodestyleCategorySeverity.E": "Hint",
+   "python.linting.pycodestyleCategorySeverity.W": "Hint",
+   "[python]": {
+      "editor.defaultFormatter": "ms-python.python"
+   }
 }
