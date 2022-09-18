@@ -22,7 +22,7 @@
    },
    "files.autoSave": "afterDelay",
    "workbench.colorTheme": "Shades of Purple",
-   "editor.defaultFormatter": "TabNine.tabnine-vscode",
+   "editor.defaultFormatter": "ms-python.python",
    "jupyter.disableJupyterAutoStart": true,
    "liveServer.settings.CustomBrowser": "chrome",
    "liveServer.settings.NoBrowser": true,
@@ -41,5 +41,13 @@
    "python.linting.pycodestyleCategorySeverity.W": "Hint",
    "[python]": {
       "editor.defaultFormatter": "ms-python.python"
-   }
+   },
+   "python.linting.lintOnSave": false,
+   "editor.guides.bracketPairs": true,
+   "editor.guides.bracketPairsHorizontal": true,
+   "workbench.colorCustomizations": {
+   
+   },
+   "editor.semanticHighlighting.enabled": true,
+   "workbench.iconTheme": "vscode-great-icons"
 }
