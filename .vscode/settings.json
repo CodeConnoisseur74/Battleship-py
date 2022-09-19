@@ -49,5 +49,7 @@
    
    },
    "editor.semanticHighlighting.enabled": true,
-   "workbench.iconTheme": "vscode-great-icons"
+   "workbench.iconTheme": "vscode-great-icons",
+   "python.languageServer": "Pylance",
+   "editor.guides.indentation": true
 }
