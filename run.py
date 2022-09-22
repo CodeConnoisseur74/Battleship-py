@@ -36,7 +36,7 @@ def viewer(matrix):
 
 def direction_validity(occupying_area, x_cor, y_cor, direction):
     """
-    
+    Validates the chosen ship coordinates of the player.
     """
     if direction == "v":
         if occupying_area <= 11 - y_cor:
@@ -52,6 +52,9 @@ def direction_validity(occupying_area, x_cor, y_cor, direction):
 
 
 def is_occupied(occupying_area, x_cor, y_cor, direction):
+    """ 
+    Indicates where ship is occupied.
+    """
     for i in range(1, occupying_area):
 
         if direction == "v":
@@ -73,6 +76,10 @@ def is_occupied(occupying_area, x_cor, y_cor, direction):
 
 
 def opponent_occupied(occupying_area, x_cor, y_cor, direction):
+    """ 
+    Indicates where the ship is occupied and returns a message indicating
+    to the opponent that the enemy ship is in that coordinate space.
+    """
     for i in range(0, occupying_area):
 
         if direction == "v":
@@ -94,6 +101,9 @@ def opponent_occupied(occupying_area, x_cor, y_cor, direction):
 
 
 def check(coordinate_ships):
+    """ 
+    Checks the invalid coordinates of the ships.
+    """
     if ((len(coordinate_ships) == 3) and (
             coordinate_ships[0].lower() == "v" or coordinate_ships[0].lower() == "h") and (
             coordinate_ships[1].upper() in x[0]) and (coordinate_ships[2] in y[0])):
@@ -104,6 +114,9 @@ def check(coordinate_ships):
 
 
 def input_processor(coordiante_ships):
+    """ 
+    Analyses the coordinate of the ships.
+    """
     direction_ships = coordinate[0].lower()
 
     for ELEMENT in x[0]:
@@ -123,6 +136,9 @@ def input_processor(coordiante_ships):
 
 
 def opponent():
+    """ 
+    Establishes the parameters of both the comouter's and player's grids for game play.
+    """
     global opponent_grid
     opponent_grid = []
 

@@ -1,10 +1,10 @@
 Readme.md 
 
-# **TITLE**
+# **BATTLESHIP PY**
 
-![Live Project Mockup](path to mockup image goes here)
+![Live Project Mockup](https://ui.dev/amiresponsive?url=https://battleship-py.herokuapp.com/)
 
-[Link to Live Project](link to live site goes here)
+[Link to Live Project](lhttps://battleship-py.herokuapp.com/)
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -19,9 +19,6 @@ Readme.md
   - [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
-  - [GitHub](#github-pages)
-  - [Forking the GitHub Repository](#forking-the-github-repository)
-  - [Cloning the GitHub Repository](#cloning-the-github-repository)
 - [Credits](#credits)
   - [Code](#code)
   - [Content](#content)
@@ -30,7 +27,7 @@ Readme.md
 
 ## Introduction
 
-Some introductory text about the site and its goals.
+Battleship Py is a CLI (Command-Line Interface) game that can be run with little processor power. The player battles against the computer in a classic strategic war game made famous by Hasbro as a board game classic. Like the board game, the player has the ability to strategically place the ships on the 10 X 10 game grid. The player has a choice of placing the ships either vertically or horizonntally between coordinate parameters A-J and 1-8. Constant scoring updates and feedback updates the player throughout the game until the player has either won or lost.
 
 ## UX
 
@@ -38,63 +35,118 @@ Some introductory text about the site and its goals.
 
 | ID | As a... | I Want To Be Able To... | So That I Can...|
 | --- | --- | --- | --- |
-| 01 | User | Some capability e.g. navigate site | Some benefit |
-| 02 | User | Some capability | Some benefit |
-| 03 | User | Some capability | Some benefit |
+| 01 | Game Enthusiast | a simple strategy game | Simple instructions at beginning of game. I have the ability to strategically place my ships as I can with the board game. Game also gives me contant score updates and feedback on invalid coordinates, as well as if I have won or lost.|
+| 02 | Older middle-aged vintage computers enthusiast| Classic CLI game for nostalgia.| I can relive my childhood by running a good old fashioined commandline game.Easy to run and can play whilst doing other tasks on my computer.|
+| 03 | Young student learning python | I can play games like my parents did back in the day and have fun studying at school.| I can run this on single board computer projects for school and hobby.|
 
 ### Wireframes
-
-The following wireframes were created to help plan the layout of the site:
-
-* [Homepage](path to file)
-* [another page](path to file)
-
+* No wireframes were required for this project.
 ## Features
+*Command-line Interface "vintage style" game easily run with little processor power and other resources from the computer, thus the ability to run on older computers.
+*Player has the added strategic ability of playing the ships, just like the original board game.
+*Clear instructions as to how to play the game.
+*Consistent score updates and game feedback to the player with every strategic move.
 
 ### Existing Features
+*Intro welcome message with instructions.
 
-#### Name of feature
+![Welcome message](/images/project3intro.png)
 
-* Description of feature and benefit
-* Description of feature and benefit
 
-![Feature Name](image path)
-
-#### Name of feature
-
-* Description of feature and benefit
-* Description of feature and benefit
-
-![Feature Name](image path)
+![10 X 10 game grid](/images/project3gameplay.png)
 
 ### Features Left to Implement
 
 * Describe some features that we would like to implement in the future
 
-## Technologies Used
+*Add color to the game through Colorama included with python and some ASCII art.
 
+*Expand on the gameplay messages to expand the game.
+
+*Use GamePy for a complete 2D GUI expereince.
+
+*Eventually devolp further as an Android app.
+## Technologies Used
+ 
 ### Languages Used
-* [HTML5](https://en.wikipedia.org/wiki/HTML5), [CSS3](https://en.wikipedia.org/wiki/CSS), [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+*[Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+![Python](/images/python-logo-only.png)
+
+
+*[VS Code](https://en.wikipedia.org/wiki/Visual_Studio_Code)
+
+![VSCode](/images/vscodelogo.png)
+
+*[Pycharm](https://en.wikipedia.org/wiki/JetBrainse)
+
+![VSCode](/images/PyCharmlogo.png)
+
+*[Heroku](https://en.wikipedia.org/wiki/Heroku)
+
+![Heroku](/images/herokulogo.png)
+
 
 ### Frameworks, Libraries & Programs Used
 
-* [Bootstrap 5.2](https://getbootstrap.com/docs/5.2/getting-started/introduction/) has been used to assist with the styling of the site and particularly the responsiveness.
-* List other frameworks we have used.
+*[Random](https://docs.python.org/3/library/random.html) 
 
 ## Testing
 
-Details about the testing we have carried out.
+PEP8, Pylint and Black Formatter was used to test and find errors. Only syntax errors were found. Renaming of functions and variables according to PEP8 documentation was carried out and refactored using PyCharm before confirming and copying over to VSCode in Gitpod. 
 
 ## Deployment
 
-### GitHub Pages
+### Heroku
 
-The project was deployed to GitHub Pages. The following steps are used to deploy the site:
-* Navigate to GitHub and locate and select the GitHub repository.
-* Navigate to the settings tab and select the 'Pages' tab from the menu.
-* Under 'Source' click the dropdown labelled 'None' and select the 'master' branch.
-* Click save. The page will automatically refresh and the published site link can be found on the 'Pages' tab.
-* The link can be found here - link to live site
+This program was deployed to Heroku, following the below steps:
+
+    Push most up-to-date code to Github
+
+    Create a list of requirements by typing the following into the terminal: pip3 freeze > requirements.txt
+
+    Push the requirements to Github
+
+    Logon to Heroku
+
+    Select create new app
+
+    Add app name
+
+    Add app region
+
+    Select 'Create app'
+
+    Open up the Settings tab, on the top ribbon
+
+    In 'Config Vars' select 'Reveal Config Vars'
+
+    Add 'PORT' as a key and '8000' as a value
+
+    In 'Buildpacks' select 'Add buildpack' and choose python. Then, repeat for nodejs (order is important; python first followed by nodejs)
+
+    Navigate to 'Deploy' on the top ribbon
+
+    In 'Deployment method', select 'Github', once clicked it should say 'connected'
+
+    Enter a repository in Github to connect to and click 'Search'
+
+    Once repository has been found, click 'Connect' to link new app to Github repository
+
+    In 'Automatic deploys', select the 'Enable Automatic Deploy' option
+
+    To view your command line on the Heroku platform, once a new code has been pushed to Github, log on to Heroku
+
+    Select the required app that appears on your home screen
+
+    Select 'Open app' on the right hand side of the screen
+
+    The app should appear in a new tab on the web browser
+
+    The link to my Heroku app is: https://cli-battleship-game.herokuapp.com/
+
+
+
 
 ### Forking the GitHub Repository
 
@@ -120,14 +172,9 @@ The following steps can be used to clone the GitHub repository:
 
 * Credit and articles etc that we have copied code from
 
-### Content
-* credit fonts and font awesome icons etc
-* Credit and sites we have taken information from
+*[PEP8](https://peps.python.org/pep-0008/)
 
-### Media
-* Credit images used
-
-### Other
+*[Al Sweigart, Author of Python Text Books for No Startch Press](https://alsweigart.com/)
 
 * Any other credits
 
