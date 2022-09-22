@@ -4,7 +4,7 @@ Readme.md
 
 ![Live Project Mockup](https://ui.dev/amiresponsive?url=https://battleship-py.herokuapp.com/)
 
-[Link to Live Project](lhttps://battleship-py.herokuapp.com/)
+[Link to Live Project](https://battleship-py.herokuapp.com/)
 
 ## Table of Contents
 - [Introduction](#introduction)
