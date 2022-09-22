@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 import random
 
+# Input welcome message with rules and display it.
+name= input("Enter name:")
+print("Welcome to Battleship Py! Build ships with: V for VERTICAL, H for HORIZONTAL, with cooordinates between A-J and 1-8. GOOD LUCK",name)
+
 
 def guess_checker(guess):
     if (guess[0].upper() in x[0]) and (guess[1] in y[0]):
@@ -28,22 +32,22 @@ def direction_validity(occupying_area, x_cor, y_cor, direction):
         if occupying_area <= 11 - y_cor:
             return True
         print(
- f"[Your coordinates are out of boundaries. Please enter a valid coordinate!] [coordinate states the upper most left coordinate of the ship.]")
+            f"[Illegal move! Enter legal coordinates!]")
         return False
 
-    elif direction == "h":
+    elif direction == "h": 
         if occupying_area <= 11 - x_cor:
             return True
         return False
 
 
-def isOccupied(occupying_area, x_cor, y_cor, direction):
+def is_occupied(occupying_area, x_cor, y_cor, direction):
     for i in range(1, occupying_area):
 
         if direction == "v":
             if grid[y_cor + i][x_cor] == " X ":
                 print(
-                    "There is already another ship intersecting with these coordinates!")
+                    "Ship approaching with same coordinates!")
                 return True
             else:
                 continue
@@ -52,13 +56,13 @@ def isOccupied(occupying_area, x_cor, y_cor, direction):
         elif direction == "h":
             if grid[y_cor][x_cor + i] == " X ":
                 print(
-                    "There is already another ship intersecting with these coordinates!")
+                    "The enemy ship is there! Choose another!")
                 return True
             else:
                 continue
 
 
-def opponentOccupied(occupying_area, x_cor, y_cor, direction):
+def opponent_occupied(occupying_area, x_cor, y_cor, direction):
     for i in range(0, occupying_area):
 
         if direction == "v":
@@ -79,32 +83,33 @@ def opponentOccupied(occupying_area, x_cor, y_cor, direction):
                 continue
 
 
-def check(coordinate):
-    if ((len(coordinate) == 3) and (coordinate[0].lower() == "v" or coordinate[0].lower() == "h") and (
-            coordinate[1].upper() in x[0]) and (coordinate[2] in y[0])):
+def check(coordinate_ships):
+    if ((len(coordinate_ships) == 3) and (
+            coordinate_ships[0].lower() == "v" or coordinate_ships[0].lower() == "h") and (
+            coordinate_ships[1].upper() in x[0]) and (coordinate_ships[2] in y[0])):
         return True
     else:
         print("*PLEASE ENTER A VALID COORDINATE!")
         return False
 
 
-def inputProcessor(coordinate):
-    direction = coordinate[0].lower()
+def input_processor(coordiante_ships):
+    direction_ships = coordinate[0].lower()
 
-    for element in x[0]:
+    for ELEMENT in x[0]:
 
-        if element in coordinate[1:2].upper():
-            x_cor = x[0].find(element)
-
-            break
-
-    for element in y[0]:
-        if element in coordinate[2:]:
-            y_cor = y[0].find(element)
+        if ELEMENT in coordinate[1:2].upper():
+            x_cor = x[0].find(ELEMENT)
 
             break
 
-    return x_cor, y_cor, direction
+    for ELEMENT in y[0]:
+        if ELEMENT in coordinate[2:]:
+            y_cor = y[0].find(ELEMENT)
+
+            break
+
+    return x_cor, y_cor, direction_ships
 
 
 def opponent():
@@ -114,10 +119,10 @@ def opponent():
     for i in range(15):
         opponent_grid.append([])
         for j in range(15):
-            element = " O "
+            ELEMENT = " O "
             if i > 10:
-                element = " X "
-            opponent_grid[i].append(element)
+                ELEMENT = " X "
+            opponent_grid[i].append(ELEMENT)
 
     x = ["ABCDEFGHIJ"]
     y = ["1234567890"]
@@ -125,12 +130,12 @@ def opponent():
     occupied = False
     global opponent_positions
     opponent_positions = {}
-
     ship_coordinates = {"Battleship": [1, 4],
                         "Cruiser": [2, 3],
                         "Destroyer": [3, 2],
                         "Submarine": [4, 1]}
 
+    keys: str
     for keys in ship_coordinates:
         for i in range(ship_coordinates[keys][0]):
             direction = random.choice(["v", "h"])
@@ -140,12 +145,12 @@ def opponent():
                 ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"])
 
             coordinate = direction + x_choice + y_choice
-            x_cor, y_cor, direction = inputProcessor(coordinate)
+            x_cor, y_cor, direction = input_processor(coordinate)
 
-            directionValid = direction_validity(
+            direction_valid = direction_validity(
                 ship_coordinates[keys][1], x_cor, y_cor, direction)
 
-            while directionValid == False:
+            while direction_valid == False:
                 direction = random.choice(["v", "h"])
                 x_choice = random.choice(
                     ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"])
@@ -153,12 +158,12 @@ def opponent():
                     ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
 
                 coordinate = direction + x_choice + y_choice
-                x_cor, y_cor, direction = inputProcessor(coordinate)
+                x_cor, y_cor, direction = input_processor(coordinate)
 
-                directionValid = direction_validity(
+                direction_valid = direction_validity(
                     ship_coordinates[keys][1], x_cor, y_cor, direction)
 
-            occupied = opponentOccupied(
+            occupied = opponent_occupied(
                 ship_coordinates[keys][1], x_cor, y_cor, direction)
 
             while occupied:
@@ -169,22 +174,10 @@ def opponent():
                     ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
 
                 coordinate = direction + x_choice + y_choice
-                x_cor, y_cor, direction = inputProcessor(coordinate)
+                x_cor, y_cor, direction = input_processor(coordinate)
 
-                occupied = opponentOccupied(
+                occupied = opponent_occupied(
                     ship_coordinates[keys][1], x_cor, y_cor, direction)
-
-            opponent_positions[coordinate] = []
-            for j in range(ship_coordinates[keys][1]):
-                if direction == "v":
-                    opponent_grid[y_cor + j][x_cor] = " X "
-
-                    opponent_positions[coordinate].append([y_cor + j, x_cor])
-
-                elif direction == "h":
-                    opponent_grid[y_cor][x_cor + j] = " X "
-
-                    opponent_positions[coordinate].append([y_cor, x_cor + j])
 
     # print(opponent_positions)
     return opponent_grid
@@ -218,28 +211,26 @@ for keys in ship_coordinates:
         coordinate = input(f"Please enter the coordinates for {keys}: ")
         while check(coordinate) == False:
             coordinate = input(f"Please enter the coordinates for {keys}: ")
-
-        x_cor, y_cor, direction = inputProcessor(coordinate)
-
-        directionValid = direction_validity(
+        x_cor, y_cor, direction = input_processor(coordinate)
+        direction_valid = direction_validity(
             ship_coordinates[keys][1], x_cor, y_cor, direction)
 
-        while directionValid == False:
+        while direction_valid == False:
             while check(coordinate) == False:
                 coordinate = input(
                     f"Please enter the coordinates for {keys}: ")
-            x_cor, y_cor, direction = inputProcessor(coordinate)
-            directionValid = direction_validity(
+            x_cor, y_cor, direction = input_processor(coordinate)
+            direction_valid = direction_validity(
                 ship_coordinates[keys][1], x_cor, y_cor, direction)
 
-        occupied = isOccupied(
+        occupied = is_occupied(
             ship_coordinates[keys][1], x_cor, y_cor, direction)
         while occupied:
             while check(coordinate) == False:
                 coordinate = input(
                     f"Please enter the coordinates for {keys}: ")
-            x_cor, y_cor, direction = inputProcessor(coordinate)
-            occupied = isOccupied(
+            x_cor, y_cor, direction = input_processor(coordinate)
+            occupied = is_occupied(
                 ship_coordinates[keys][1], x_cor, y_cor, direction)
 
         player_positions[coordinate] = []
@@ -270,9 +261,9 @@ win = False
 round_num = 0
 
 while not win:
-    guess = input("Please enter a shooting coordinate: ")
+    guess = input("Please enter a shooting coordinate_ships: ")
     while guess_checker(guess) == False:
-        guess = input("Please enter a shooting coordinate: ")
+        guess = input("Please enter a shooting coordinate_ships: ")
     first = x[0].find(guess[0].upper())
     second = y[0].find(guess[1])
 
@@ -314,3 +305,4 @@ while not win:
         f"---------------\nROUND {round_num} SCORE\nYour Score: {player_score}\nOpponent's Score: {opp_score}\n---------------")
 
 print(f"Your Score: {player_score}\nOpponent's Score: {opp_score}")
+

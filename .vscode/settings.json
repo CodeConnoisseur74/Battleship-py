@@ -1,5 +1,5 @@
 {
-  "python.linting.pylintEnabled": true,
+  "python.linting.pylintEnabled": false,
   "python.linting.enabled": true,
   "python.linting.pycodestyleEnabled": false,
   "python.linting.flake8Enabled": false,
@@ -20,9 +20,9 @@
     "**/core.python*": true,
     "**/CVS": true
   },
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "off",
   "workbench.colorTheme": "Shades of Purple",
-  "editor.defaultFormatter": "ms-python.python",
+  "editor.defaultFormatter": "ms-python.black-formatter",
   "jupyter.disableJupyterAutoStart": true,
   "liveServer.settings.CustomBrowser": "chrome",
   "liveServer.settings.NoBrowser": true,
@@ -50,7 +50,14 @@
   "workbench.iconTheme": "vscode-great-icons",
   "python.languageServer": "Pylance",
   "editor.guides.indentation": true,
-  "pythonIndent.keepHangingBracketOnLine": true,
-  "pythonIndent.useTabOnHangingIndent": true,
-  "pythonIndent.trimLinesWithOnlyWhitespace": true
+  "pythonIndent.keepHangingBracketOnLine": false,
+  "pythonIndent.useTabOnHangingIndent": false,
+  "pythonIndent.trimLinesWithOnlyWhitespace": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "yaml.format.enable": false,
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/home/gitpod/.pyenv/versions/3.8.11/lib/python3.8/site-packages",
+  "black-formatter.importStrategy": "fromEnvironment"
 }
