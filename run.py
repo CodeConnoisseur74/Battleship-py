@@ -7,6 +7,9 @@ print("Welcome to Battleship Py! Build ships with: V for VERTICAL, H for HORIZON
 
 
 def guess_checker(guess):
+    """
+    Checks the guesses of both the computer and the player.
+    """
     if (guess[0].upper() in x[0]) and (guess[1] in y[0]):
         return True
     else:
@@ -15,6 +18,10 @@ def guess_checker(guess):
 
 
 def viewer(matrix):
+    """ 
+     Builds the matrix that contains the game 10 x 10 grid for placement
+    of ships using coordinates
+    """
     for i in range(10):
         print(" " + x[0][i] + " ", end="")
     print()
@@ -28,6 +35,9 @@ def viewer(matrix):
 
 
 def direction_validity(occupying_area, x_cor, y_cor, direction):
+    """
+    
+    """
     if direction == "v":
         if occupying_area <= 11 - y_cor:
             return True
